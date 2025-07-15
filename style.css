@@ -57,9 +57,45 @@ body {
 }
 
 .line h2 {
-  font-size: 6.5vw;
+  font-size: 5vw;
   text-transform: uppercase;
   font-weight: 900;
+  opacity: 0;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes loaderAnime {
+  0% {
+    font-family: "plain light";
+    -webkit-text-stroke: 1px #fff;
+    color: #fff;
+    font-weight: 500;
+    opacity: 1;
+  }
+
+  48% {
+    font-family: "plain light";
+    -webkit-text-stroke: 1px #fff;
+    color: #fff;
+    font-weight: 500;
+    opacity: 0;
+  }
+
+  50% {
+    font-family: "silk serif";
+    -webkit-text-stroke: 1px #fff;
+    font-weight: 500;
+    color: transparent;
+    opacity: 1;
+  }
+
+  100% {
+    font-family: "silk serif";
+    -webkit-text-stroke: 1px #fff;
+    font-weight: 500;
+    color: transparent;
+    opacity: 0;
+  }
 }
 
 #main {
