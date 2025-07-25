@@ -152,7 +152,7 @@ body {
   margin-left: 27%;
   height: fit-content;
   /* background-color: red; */
-  overflow: hidden;
+  overflow-y: hidden;
   display: flex;
   align-items: center;
   position: relative;
@@ -168,7 +168,18 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   line-height: 7.2vw;
+  position: relative;
 }
+
+/* #hero1::before {
+  content: "01";
+  position: absolute;
+  font-size: 3vw;
+  font-family: "silk serif";
+  font-weight: 100;
+  left: 20%;
+  top: 29%;
+} */
 
 .hero h2 {
   font-size: 7.2vw;
@@ -258,6 +269,17 @@ body {
   font-size: 6vw;
   font-weight: 600;
   text-transform: uppercase;
+  position: relative;
+}
+
+#page4-content h1::before {
+  content: "03";
+  position: absolute;
+  font-size: 3vw;
+  font-family: "silk serif";
+  font-weight: 100;
+  left: -12%;
+  top: 8%;
 }
 
 #page4-content .underline {
