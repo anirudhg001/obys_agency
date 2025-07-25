@@ -171,15 +171,16 @@ body {
   position: relative;
 }
 
-/* #hero1::before {
+#hero1::before {
   content: "01";
   position: absolute;
   font-size: 3vw;
+  z-index: 99;
   font-family: "silk serif";
   font-weight: 100;
-  left: 20%;
-  top: 29%;
-} */
+  right: 30%;
+  top: -17%;
+}
 
 .hero h2 {
   font-size: 7.2vw;
