@@ -383,3 +383,66 @@ body {
   font-family: "silk serif";
   color: transparent;
 }
+
+#footer {
+  height: 85vh;
+  width: 100%;
+  /* background-color: red; */
+  position: relative;
+  padding-left: 28vw;
+  padding-right: 2vw;
+}
+
+#footer h1 {
+  font-size: 7vw;
+  text-transform: uppercase;
+  position: relative;
+  /* background-color: blue; */
+}
+
+#footer h1::before {
+  content: "04";
+  position: absolute;
+  font-size: 3vw;
+  font-family: "silk serif";
+  font-weight: 100;
+  left: -12%;
+  top: 8%;
+}
+
+.underline {
+  height: 2px;
+  width: 100%;
+  background-color: #fff;
+  margin: 3vw 0;
+}
+
+#footer-div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-right: 15vw;
+  padding-top: 4vw;
+  margin-bottom: 6vw;
+}
+
+#footer-div h6 {
+  font-size: 0.9vw;
+  margin-bottom: 1.5vw;
+  font-weight: 500;
+}
+
+.box {
+  width: 20%;
+}
+
+#footer-div h5 {
+  font-size: 1.4vw;
+  font-weight: 500;
+  /* margin: 0.2vh 0; */
+}
+
+#footer > h5 {
+  font-size: 1vw;
+  font-weight: 500;
+}
