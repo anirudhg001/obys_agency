@@ -253,6 +253,24 @@ body {
   position: relative;
 }
 
+#page3 h1 {
+  font-size: 6vw;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+  padding: 7vh 0;
+}
+
+#page3 h1::before {
+  content: "03";
+  position: absolute;
+  font-size: 3vw;
+  font-family: "silk serif";
+  font-weight: 100;
+  left: -12%;
+  top: 8%;
+}
+
 #page4 {
   min-height: 100vh;
   width: 100%;

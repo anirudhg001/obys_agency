@@ -112,5 +112,5 @@ function cursorAnimation() {
   //Parameters are optional.
 }
 loadingAnimation();
-// cursorAnimation();
+cursorAnimation();
 locomotiveAnimation();
