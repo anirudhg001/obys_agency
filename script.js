@@ -2,11 +2,11 @@ function locomotiveAnimation() {
   gsap.registerPlugin(ScrollTrigger);
 
   // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
-
   const locoScroll = new LocomotiveScroll({
     el: document.querySelector("#main"),
     smooth: true,
   });
+
   // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
   locoScroll.on("scroll", ScrollTrigger.update);
 
@@ -97,20 +97,89 @@ function loadingAnimation() {
       opacity: 0,
     },
     "-=1.2"
-  ); //-=1.2 means start this animation 1.2 seconds before the previous one ends(it is a fucntion of the duration of the previous animation)
+  ); //-=1.2 means start this animation 1.2 seconds before the previous one ends
 }
+
 function cursorAnimation() {
-  document.addEventListener("mousemove", function (dets) {
-    gsap.to("#crsr", {
-      left: dets.x,
-      top: dets.y,
+  const cursor = document.querySelector("#crsr");
+
+  // Cursor position variables for smooth interpolation
+  let mouseX = 0,
+    mouseY = 0;
+  let cursorX = 0,
+    cursorY = 0;
+
+  // Update mouse position
+  document.addEventListener("mousemove", function (e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  // Smooth cursor animation with GSAP ticker
+  gsap.ticker.add(() => {
+    // Smooth interpolation - adjust 0.15 for more/less smoothness
+    // Lower values = smoother but slower, higher values = faster but less smooth
+    cursorX += (mouseX - cursorX) * 0.15;
+    cursorY += (mouseY - cursorY) * 0.15;
+
+    // Apply transform for better performance
+    gsap.set(cursor, {
+      x: cursorX,
+      y: cursorY,
     });
   });
 
+  // Optional: Hide cursor when mouse leaves window
+  document.addEventListener("mouseleave", () => {
+    gsap.to(cursor, {
+      opacity: 0,
+      duration: 0.3,
+    });
+  });
+
+  // Show cursor when mouse enters window
+  document.addEventListener("mouseenter", () => {
+    gsap.to(cursor, {
+      opacity: 1,
+      duration: 0.3,
+    });
+  });
+
+  // Shery magnet effect
   Shery.makeMagnet("#nav-part2 h4");
-  /* Element to target.*/
-  //Parameters are optional.
 }
+
+// Alternative method using requestAnimationFrame (if you prefer not using GSAP ticker)
+function cursorAnimationRAF() {
+  const cursor = document.querySelector("#crsr");
+
+  let mouseX = 0,
+    mouseY = 0;
+  let cursorX = 0,
+    cursorY = 0;
+
+  document.addEventListener("mousemove", function (e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animate() {
+    // Smooth interpolation
+    cursorX += (mouseX - cursorX) * 0.15;
+    cursorY += (mouseY - cursorY) * 0.15;
+
+    // Use transform3d for hardware acceleration
+    cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  Shery.makeMagnet("#nav-part2 h4");
+}
+
+// Initialize animations
 loadingAnimation();
 cursorAnimation();
 locomotiveAnimation();

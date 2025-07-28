@@ -20,12 +20,12 @@ body {
   height: 2vw;
   width: 2vw;
   border-radius: 50%;
-  /* background-color: white; */
   border: 1px solid #ffffffbe;
   position: fixed;
   z-index: 999;
   mix-blend-mode: difference;
-  transform: translate(-50%, -50%);
+  pointer-events: none;
+  will-change: transform;
 }
 
 #loader {
@@ -249,8 +249,9 @@ body {
 #page3 {
   min-height: 100vh;
   width: 100%;
-  background-color: rgb(61, 61, 61);
+  /* background-color: rgb(61, 61, 61); */
   position: relative;
+  padding: 17vh 0;
 }
 
 #page3 h1 {
@@ -258,11 +259,11 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   position: relative;
-  padding: 7vh 0;
+  margin-left: 28vw;
 }
 
 #page3 h1::before {
-  content: "03";
+  content: "02";
   position: absolute;
   font-size: 3vw;
   font-family: "silk serif";
@@ -270,6 +271,11 @@ body {
   left: -12%;
   top: 8%;
 }
+
+#page3 .underline {
+  margin-left: 28vw;
+}
+
 
 #page4 {
   min-height: 100vh;
