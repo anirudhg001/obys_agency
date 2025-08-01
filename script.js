@@ -147,6 +147,55 @@ function cursorAnimation() {
 
   // Shery magnet effect
   Shery.makeMagnet("#nav-part2 h4");
+
+  var videoContainer = document.querySelector("#video-container");
+  var video = document.querySelector("#video-container video");
+  videoContainer.addEventListener("mouseenter", function () {
+    videoContainer.addEventListener("mousemove", function (dets) {
+      gsap.to(".mousefollower", {
+        opacity: 0,
+        // display: "none",
+      });
+      gsap.to("#video-cursor", {
+        left: dets.x - 500,
+        y: dets.y - 280,
+      });
+    });
+  });
+  videoContainer.addEventListener("mouseleave", function () {
+    gsap.to(".mousefollower", {
+      // display: "initial",
+      opacity: 1,
+    });
+    gsap.to("#video-cursor", {
+      left: "70%",
+      top: "15%",
+    });
+  });
+  var flag = 0;
+  videoContainer.addEventListener("click", function () {
+    if (flag == 0) {
+      video.play();
+      video.style.opacity = 1;
+      document.querySelector(
+        "#video-cursor"
+      ).innerHTML = `<i class="ri-pause-mini-fill"></i>`;
+      gsap.to("#video-cursor", {
+        scale: 0.5,
+      });
+      flag = 1;
+    } else {
+      video.pause();
+      video.style.opacity = 0;
+      document.querySelector(
+        "#video-cursor"
+      ).innerHTML = `<i class="ri-play-mini-fill"></i>`;
+      gsap.to("#video-cursor", {
+        scale: 1,
+      });
+      flag = 0;
+    }
+  });
 }
 
 // Alternative method using requestAnimationFrame (if you prefer not using GSAP ticker)
